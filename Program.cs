@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using MovieApi.Contexts;
+
 namespace MovieApi;
 
 public class Program
@@ -12,6 +15,8 @@ public class Program
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
+
+        builder.Services.AddDbContext<MovieApiContext>(contextOptions => contextOptions.UseSqlServer("connectionstring"));
 
         var app = builder.Build();
 
