@@ -2,8 +2,8 @@ namespace MovieApi.Models;
 
 public class MovieDetails
 {
-    int MovieDetailsId {get; set;}
-    string Synopsis {get; set;}
-    string Language {get;set;}
-    ulong Budget {get;set;}
+    public int MovieDetailsId {get; set;}
+    public string Synopsis {get; set;}
+    public string Language {get;set;}
+    public ulong Budget {get;set;}
 }

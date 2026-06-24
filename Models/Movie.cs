@@ -5,14 +5,14 @@ namespace MovieApi.Models;
 public class Movie
 {
     [Key]
-    int Id {get;set;}
+    public int Id {get;set;}
     [Required]
     [MaxLength(100)]
-    string Title {get;set;}
-    DateOnly Year {get;set;}
-    string Genre  {get;set;}
-    TimeSpan Duration {get;set;}
-    MovieDetails movieDetails {get;set;}
-    IEnumerable<Review> reviews {get; set;} = new List<Review>();
-    IEnumerable<Actor> actors {get; set;} = new List<Actor>();
+    public string Title {get;set;}
+    public DateOnly Year {get;set;}
+    public string Genre  {get;set;}
+    public TimeSpan Duration {get;set;}
+    public MovieDetails movieDetails {get;set;}
+    public IEnumerable<Review> reviews {get; set;} = new List<Review>();
+    public IEnumerable<Actor> actors {get; set;} = new List<Actor>();
 }

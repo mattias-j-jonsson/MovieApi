@@ -4,9 +4,10 @@ namespace MovieApi.Models;
 
 public class Actor
 {
-    int ActorId {get; set;}
+    [Key]
+    public int ActorId {get; set;}
     [Required]
     [MaxLength(50)]
-    string Name {get; set;}
-    DateOnly BirthYear {get; set;}
+    public string Name {get; set;}
+    public DateOnly BirthYear {get; set;}
 }

@@ -16,7 +16,7 @@ public class Program
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
-        builder.Services.AddDbContext<MovieApiContext>(contextOptions => contextOptions.UseSqlServer("connectionstring"));
+        builder.Services.AddDbContext<MovieApiContext>(contextOptions => contextOptions.UseSqlServer(ConnectionString.cs));
 
         var app = builder.Build();
 

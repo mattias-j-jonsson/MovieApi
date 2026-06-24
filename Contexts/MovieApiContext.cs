@@ -10,5 +10,7 @@ public class MovieApiContext : DbContext
     public DbSet<Review> Reviews { get; set; }
     public DbSet<Actor> Actors { get; set; }
 
-
+    public MovieApiContext(DbContextOptions<MovieApiContext> options) : base(options)
+    {
+    }
 }
