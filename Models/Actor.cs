@@ -10,4 +10,5 @@ public class Actor
     [MaxLength(50)]
     public string Name {get; set;}
     public DateOnly BirthYear {get; set;}
+    public IEnumerable<Movie> Movies {get; set;} = new List<Movie>();
 }

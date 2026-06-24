@@ -5,7 +5,7 @@ namespace MovieApi.Models;
 public class Movie
 {
     [Key]
-    public int Id {get;set;}
+    public int MovieId {get;set;}
     [Required]
     [MaxLength(100)]
     public string Title {get;set;}
