@@ -1,8 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MovieApi.Models;
 
 public class Movie
 {
+    [Key]
     int Id {get;set;}
+    [Required]
+    [MaxLength(100)]
     string Title {get;set;}
     DateOnly Year {get;set;}
     string Genre  {get;set;}
