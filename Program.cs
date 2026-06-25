@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using MovieApi.Contexts;
+using MovieApi.Extensions;
 
 namespace MovieApi;
 
@@ -19,6 +20,8 @@ public class Program
         builder.Services.AddDbContext<MovieApiContext>(contextOptions => contextOptions.UseSqlServer(ConnectionString.cs));
 
         var app = builder.Build();
+
+        app.SeedData();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
