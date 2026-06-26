@@ -21,7 +21,11 @@ public class Program
 
         var app = builder.Build();
 
-        app.SeedData();
+        using (var scope = app.Services.CreateScope())
+        {
+            var _context = scope.ServiceProvider.GetRequiredService<MovieApiContext>();
+            app.SeedData(_context);
+        }
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

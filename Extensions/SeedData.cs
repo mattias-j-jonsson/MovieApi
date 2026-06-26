@@ -1,4 +1,5 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using MovieApi.Contexts;
 using MovieApi.Controllers;
 using MovieApi.Models;
@@ -8,11 +9,12 @@ namespace MovieApi.Extensions;
 
 internal static class MovieApiExtensions
 {
-    internal async static void SeedData(this WebApplication webApplication)
+    internal static void SeedData(this WebApplication webApplication, MovieApiContext context)
     {
         
-        
-        using var _context = webApplication.Services.GetService<MovieApiContext>();
+    
+        using var _context = context;
+
         if (_context == null)
         {
             throw new Exception("_context is null in SeedData extension method.");
@@ -21,7 +23,7 @@ internal static class MovieApiExtensions
         var movies = GetMovies();
         _context.Movies.AddRange(movies);
 
-        await _context.SaveChangesAsync();
+        _context.SaveChanges();
     }
 
     private static IEnumerable<Movie> GetMovies()
@@ -31,7 +33,7 @@ internal static class MovieApiExtensions
             new Movie
             {
                 Title = "Fucking Åmål",
-                Year = new DateOnly(1998, 0, 0),
+                Year = new DateOnly(1998, 1, 1),
                 Genre = "Drama",
                 Duration = TimeSpan.FromMinutes(89),
                 movieDetails = new MovieDetails
@@ -60,19 +62,19 @@ internal static class MovieApiExtensions
                     new Actor
                     {
                         Name = "Rebecka Liljeberg",
-                        BirthYear = new DateOnly(1981, 0 ,0)
+                        BirthYear = new DateOnly(1981, 1 ,1)
                     },
                     new Actor
                     {
                         Name = "Alexandra Dahlström",
-                        BirthYear = new DateOnly(1984, 0 ,0)
+                        BirthYear = new DateOnly(1984, 1 ,1)
                     }
                 }
             },
             new Movie
             {
                 Title = "My Neighbor Totoro",
-                Year = new DateOnly(1988, 0, 0),
+                Year = new DateOnly(1988, 1, 1),
                 Genre = "Animation",
                 Duration = TimeSpan.FromMinutes(86),
                 movieDetails = new MovieDetails
@@ -101,19 +103,19 @@ internal static class MovieApiExtensions
                     new Actor
                     {
                         Name = "Noriko Hidaka",
-                        BirthYear = new DateOnly(1962, 0 ,0)
+                        BirthYear = new DateOnly(1962, 1 ,1)
                     },
                     new Actor
                     {
                         Name = "Chika Sakamoto",
-                        BirthYear = new DateOnly(1959, 0 ,0)
+                        BirthYear = new DateOnly(1959, 1 ,1)
                     }
                 }
             },
             new Movie
             {
                 Title = "Heat",
-                Year = new DateOnly(1995, 0, 0),
+                Year = new DateOnly(1995, 1, 1),
                 Genre = "Action",
                 Duration = TimeSpan.FromMinutes(170),
                 movieDetails = new MovieDetails
@@ -142,12 +144,12 @@ internal static class MovieApiExtensions
                     new Actor
                     {
                         Name = "Al Pacino",
-                        BirthYear = new DateOnly(1940, 0 ,0)
+                        BirthYear = new DateOnly(1940, 1 ,1)
                     },
                     new Actor
                     {
                         Name = "Robert De Niro",
-                        BirthYear = new DateOnly(1943, 0 ,0)
+                        BirthYear = new DateOnly(1943, 1, 1)
                     }
                 }
             }
